@@ -58,7 +58,7 @@ def checkkey(key):
 def main():
     input_file = "a.txt"
     checkfile(input_file)
-
+    file_path = os.path.abspath(input_file)
     key = load_key()
     checkkey(key)
     salt = os.urandom(16)
@@ -70,7 +70,7 @@ def main():
             if operation == 1:
                 password = input("Enter Password For Encrypt. ")
                 encrypt.encrypt_file(input_file, password, salt)
-                print("File encrypted successfully!")
+                print(f"File encrypted successfully! \nFile Path: {file_path}.enc")
                 break
 
             elif operation == 2:
@@ -87,7 +87,7 @@ def main():
                 if check_password(entered_password_bytes, stored_password_hash, salt):
                     print("Password correct. Proceeding...")
                     decrypt.decrypt_file(input_file + ".enc", entered_password)
-                    print("File decrypted successfully!")
+                    print(f"File decrypted successfully! \nFile Path: {file_path}")
                     break
                 else:
                     print("Incorrect password. Please try again.")

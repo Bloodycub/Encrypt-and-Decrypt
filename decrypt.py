@@ -13,9 +13,9 @@ def decrypt_file(encrypted_file_path, password):
     key = main.derive_key(password, salt)
 
     # Print some information for debugging
-    print("Salt:", salt)
-    print("IV:", iv)
-    print("Ciphertext:", ciphertext)
+    #print("Salt:", salt)
+    #print("IV:", iv)
+    #print("Ciphertext:", ciphertext)
 
     # Decrypt the ciphertext using CFB mode
     cipher = Cipher(algorithms.AES(key), modes.CFB(iv), backend=default_backend())

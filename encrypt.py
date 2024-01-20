@@ -17,9 +17,9 @@ def encrypt_file(file_path, password, salt):
         plaintext = file.read()
 
     # Print debug information
-    print("Key:", key)
-    print("IV:", iv)
-    print("Plaintext:", plaintext)
+    #print("Key:", key)
+    #print("IV:", iv)
+    #print("Plaintext:", plaintext)
 
     # Encrypt the plaintext
     cipher = Cipher(algorithms.AES(key), modes.CFB(iv), backend=default_backend())
@@ -29,6 +29,5 @@ def encrypt_file(file_path, password, salt):
     # Save the salt, IV, and ciphertext to a new file
     with open(file_path + ".enc", "wb") as encrypted_file:
         encrypted_file.write(salt + iv + ciphertext)
-        print("Salt:", salt)
+        #print("Salt:", salt) #print salt key
 
-# Rest of your code remains unchanged
